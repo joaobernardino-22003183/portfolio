@@ -1,0 +1,71 @@
+<!-- projetos.html -->
+
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+
+
+    <p class="heading">Projetos</p>
+
+    <div class="gallery-image">
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/xadrez.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Xadrez</p>
+                    <p class="opacity-low">Jogo do xadrez desenvolvido com a linguagem kotlin.</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/music.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>DEISI Rockstar</p>
+                    <p class="opacity-low">Plataforma Musical desenvolvida com a linguagem java.</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/horta.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Horta</p>
+                    <p class="opacity-low">Projeto de uma horta com rega automática, desenvolvido com a linguagem Assembly.</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/bombroad.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Bombroad</p>
+                    <p class="opacity-low">Jogo "minesweeper" desenvolvido com a linguagem Assembly</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/carro.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Carro Telecomandado</p>
+                    <p class="opacity-low">Carro comandado por Arduino, desenvolvido com a linguagem C++</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/great_game.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Deisi Great Game</p>
+                    <p class="opacity-low">Jogo "Deisi Great Game" desenvolvido com a linguagem "java"</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

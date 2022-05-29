@@ -1,0 +1,83 @@
+<!-- quiz.html -->
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/quizz.css' %}">
+
+    <div class="cabecalho">
+        <h1>Quizz</h1>
+    </div>
+
+    <form method="post">
+
+        {% csrf_token %}
+        <div class="nome_quizz">
+            <h3 for="fname">Nome</h3>
+	        <input type="text" id="nome" name="nome">
+        </div>
+
+        <div class="container">
+            <h4>O que significa a sigla CSS?</h4>
+            <input type="radio" value="Computer Style Sheets" name="primeira" id="1r1">
+            <label for="1r1">Computer Style Sheets</label>
+            <input type="radio" value="Cascading Style Sheets" name="primeira" id="1r2">
+            <label for="1r2">Cascading Style Sheets</label>
+            <input type="radio" value="Creative Style Sheets" name="primeira" id="1r3">
+            <label for="1r3">Creative Style Sheets</label>
+        </div>
+
+
+        <div class="container">
+            <h4>O que significa a sigla HTML?</h4>
+            <input type="radio" value="Home Tool Markup Language" name="segunda" id="2r1">
+            <label for="2r1">Home Tool Markup Language</label>
+            <input type="radio" value="Hyperlinks and Text Markup Language" name="segunda" id="2r2">
+            <label for="2r2">Hyperlinks and Text Markup Language</label>
+            <input type="radio" value="HyperText Markup Language" name="segunda" id="2r3">
+            <label for="2r3">HyperText Markup Language</label>
+        </div>
+
+        <div class="container">
+            <h4>Html é uma linguagem de?</h4>
+            <input type="radio" value="Programação" name="terceira" id="3r1">
+            <label for="3r1">Programação</label>
+            <input type="radio" value="Marcadores" name="terceira" id="3r2">
+            <label for="3r2">Marcadores</label>
+            <input type="radio" value="Pesca" name="terceira" id="3r3">
+            <label for="3r3">Pesca</label>
+        </div>
+
+        <div class="container">
+            <h4>A linguagem HTML é responsável por</h4>
+            <input type="radio" value="Estilizar o conteúdo da página web." name="quarta" id="4r1">
+            <label for="4r1">Estilizar o conteúdo da página web.</label>
+            <input type="radio" value="Estruturar o conteúdo de uma página web." name="quarta" id="4r2">
+            <label for="4r2">Estruturar o conteúdo de uma página web.</label>
+            <input type="radio" value="Programar uma base de dados." name="quarta" id="4r3">
+            <label for="4r3">Programar uma base de dados.</label>
+        </div>
+
+
+        <div class="container">
+            <h4>A linguagem CSS é responsável por</h4>
+            <input type="radio" value="Programar uma base de dados" name="quinta" id="5r1">
+            <label for="5r1">Programar uma base de dados</label>
+            <input type="radio" value="Estruturar o conteúdo de uma página web" name="quinta" id="5r2">
+            <label for="5r2">Estruturar o conteúdo de uma página web</label>
+            <input type="radio" value="Estilizar o conteúdo da página web." name="quinta" id="5r3">
+            <label for="5r3">Estilizar o conteúdo da página web.</label>
+        </div>
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <div class="center">
+        <img src={% static "portfolio/images/resultados.png"%}>
+    </div>
+
+
+
+
+{% endblock%}

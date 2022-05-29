@@ -1,0 +1,22 @@
+<!-- base.html -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+
+
+<body>
+    <header>
+        <div>João Bernardino</div>
+        <nav>
+            <a href="{% url 'portfolio:home' %}">home</a>
+            <a href="{% url 'portfolio:licenciatura' %}">licenciatura</a>
+            <a href="{% url 'portfolio:projetos' %}">projetos</a>
+            <a href="{% url 'portfolio:blog' %}">blog</a>
+            <a href="{% url 'portfolio:quizz' %}">quizz</a>
+        </nav>
+    </header>
+	<main>
+        {% block main %}
+	    {% endblock main %}
+    </main>
+    <footer>ULHT, 2022</footer>
+</body>

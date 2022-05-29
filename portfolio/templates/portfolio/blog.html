@@ -1,0 +1,25 @@
+<!-- blog.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+
+    <div class="cabecalho">
+        <h1>Blog</h1><a href="{% url 'portfolio:novo' %}" class="nova_tarefa">Nova Tarefa</a>
+    </div>
+    {% for post in portfolio %}
+        <div class="container">
+            <h2>Titulo: {{ post.titulo }}</h2>
+            <h6>Data de criação: {{ post.data_criacao }}</h6>
+            <p>Nome do Autor: {{ post.nome_autor }}</p>
+            <p>Descrição: {{ post.descricao }}</p>
+
+
+            <a href="{% url 'portfolio:edita' post.id %}" class="button" style="float: right; margin-right: 10px">Editar</a>
+
+        </div>
+   {% endfor %}
+
+
+{% endblock%}

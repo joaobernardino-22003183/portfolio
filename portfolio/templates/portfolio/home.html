@@ -1,0 +1,45 @@
+<!-- home.html -->
+
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+
+    <body>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1 style="font-size:50px">João Bernardino</h1>
+
+                <ul>
+                    <li><a class="home" href="{% url 'portfolio:home' %}">Home</a></li>
+                    <li><a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a></li>
+                    <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+                    <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
+                    <li><a href="{% url 'portfolio:quizz' %}">Quizz</a></li>
+                    <li><a href="#texto" class="texto">Curso</a></li>
+                </ul>
+            </div>
+
+            <article class="primeiro">
+            </article>
+
+            <article class='segundo'>
+            </article>
+
+            <article class="terceiro">
+                <div id="texto">
+                    <h3>Licenciatura em Engenharia Informática</h3>
+                    <p>Este curso, tem bastante componente prática, aprendemos diferentes linguagens de programação, desde às de "alto nível" às de mais "baixo nível".
+                        Mas o mais importante, aprendemos a pensar como um profissional da área.<br>
+                        Para além de ser interessantíssimo aprofundar conhecimentos nesta área, este curso dá-nos muitas saídas em diferentes ramos empresariais.
+                    </p>
+                </div>
+            </article>
+
+            <footer>ULHT, 2022</footer>
+        </div>
+
+
+    </body>
+
+{% endblock %}

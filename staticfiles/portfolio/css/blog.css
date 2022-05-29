@@ -1,0 +1,56 @@
+h1 {
+  color: steelblue;
+  font-size: 50px;
+}
+h2 {
+  color: steelblue;
+}
+h6 {
+  color: dimgrey;
+  height: 30px;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  height: 180px;
+  border: 2px solid steelblue;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: burlywood;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.button:hover{
+  background-color: steelblue;
+}
+
+.cabecalho {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.nova_tarefa {
+  background-color: steelblue;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-left: 82.25%;
+}
+
+.nova_tarefa:hover{
+  background-color: burlywood;
+}

@@ -1,0 +1,74 @@
+<!-- home.html -->
+
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+
+	<p class="heading">Licenciatura em Engenharia Informática - Disciplinas</p>
+
+
+    <div class="gallery-image">
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/c_code.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Linguagens de Programação 1</p>
+                    <p>
+                        ->Primeiro Ano<br>
+                        ->Segundo Semestre<br>
+                        ->5 ECTS<br>
+                        ->2021<br>
+                        ->Disciplina onde aprendemos a linguagem C<br>
+                        ->ranking: &#11088;&#11088;&#11088;&#11088;<br>
+                        ->Pedro Arroz Serra<br>
+                        ->Bombroad<br>
+                        <a href="https://www.ulusofona.pt/licenciaturas/engenharia-informatica/linguagens-de-programacao-i/ULHT260-498">Linguagens de Programação 1</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/java_code.png' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Linguagens de programação 2</p>
+                    <p>
+                        ->Segundo Ano<br>
+                        ->Primeiro Semestre<br>
+                        ->6 ECTS<br>
+                        ->2021<br>
+                        ->Disciplina onde aprendemos a linguagem Java<br>
+                        ->ranking: &#11088;&#11088;&#11088;&#11088;<br>
+                        ->Pedro Alves<br>
+                        ->Projeto Final: Deisi Great Game<br>
+                        <a href="https://www.ulusofona.pt/licenciaturas/engenharia-informatica/linguagens-de-programacao-ii/ULHT260-898">Linguagens de Programação 2</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="{% static 'portfolio/images/web_code.jpeg' %}">
+            <div class="transparent-box">
+                <div class="caption">
+                    <p>Programação WEB</p>
+                    <p>
+                        ->Segundo Ano<br>
+                        ->Segundo Semestre<br>
+                        ->6 ECTS<br>
+                        ->2021<br>
+                        ->Disciplina onde aprendemos a linguagem HTML, CSS , frameworks de Django e python<br>
+                        ->ranking: &#11088;&#11088;&#11088;&#11088;&#11088;<br>
+                        ->Lucio Studer e Pedro Perdigão<br>
+                        ->Projeto Final: Portfolio<br>
+                        <a href="https://www.ulusofona.pt/licenciaturas/engenharia-informatica/programacao-web/ULHT260-11195">Programação WEB</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

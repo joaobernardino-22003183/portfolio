@@ -35,6 +35,7 @@ class Linguagem(models.Model):
 class Projeto(models.Model):
     nome = models.CharField(max_length=40)
     descricao = models.TextField()
+    imagem = models.ImageField(blank=True, upload_to='image')
 
     def __str__(self):
         return self.nome[:30]

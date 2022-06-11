@@ -84,11 +84,8 @@ def desenha_grafico_resultados(request):
     plt.barh(listaNomes, listapontuacao)
     plt.savefig('portfolio/static/portfolio/images/resultados.png', bbox_inches='tight')
 
-@login_required
-def novo_topico_view(request):
 
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('tarefas:login'))
+def novo_topico_view(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -98,9 +95,6 @@ def novo_topico_view(request):
     return render(request, 'portfolio/novo.html', context)
 
 def edita_topico_view(request, topico_id):
-
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('tarefas:login'))
     topico = Post.objects.get(id=topico_id)
     form = PostForm(request.POST or None, instance=topico)
 
@@ -113,7 +107,6 @@ def edita_topico_view(request, topico_id):
 
 
 def apaga_topico_view(request, topico_id):
-
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('tarefas:login'))
     Post.objects.get(id=topico_id).delete()

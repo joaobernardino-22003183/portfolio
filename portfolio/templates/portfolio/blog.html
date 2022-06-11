@@ -8,6 +8,7 @@
     <div class="cabecalho">
         <h1>Blog</h1><a href="{% url 'portfolio:novo' %}" class="nova_tarefa">Nova Tarefa</a>
     </div>
+
     {% for post in portfolio %}
         <div class="container">
             <h2>Titulo: {{ post.titulo }}</h2>

@@ -12,17 +12,17 @@ class Post(models.Model):
 
 class PontuacaoQuizz(models.Model):
     nome = models.CharField(max_length=20)
-    pontos = models.IntegerField(max_length=20, default=0)
+    pontos = models.IntegerField(default=0)
 
     def __str__(self):
         return self.nome[:10]
 
 
 class Professor(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=40)
 
     def __str__(self):
-        return self.nome[:10]
+        return self.nome[:30]
 
 
 class Linguagem(models.Model):
@@ -33,20 +33,25 @@ class Linguagem(models.Model):
 
 
 class Projeto(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=40)
+    descricao = models.TextField()
 
     def __str__(self):
-        return self.nome[:10]
+        return self.nome[:30]
 
 
 class Cadeira(models.Model):
-   nome = models.CharField(max_length=20)
+   nome = models.CharField(max_length=40)
    ano = models.IntegerField()
+   ects = models.CharField(max_length=20)
    descricao = models.TextField()
-   linguagens = models.ManyToManyField(Linguagem)
+   linguagens = models.ForeignKey(Linguagem, on_delete=models.CASCADE, default="linguagens")
    docente_teorica = models.ForeignKey(Professor, on_delete=models.CASCADE)
-   docentes_praticas = models.ManyToManyField(Professor, related_name='cadeiras')
-   projetos = models.ManyToManyField(Projeto)
+   docentes_praticas = models.ForeignKey(Professor, related_name='cadeiras', on_delete=models.CASCADE,default="nome")
+   projetos = models.ForeignKey(Projeto, on_delete=models.CASCADE, default="projetos")
+   ranking = models.CharField(max_length=40)
+   imagem = models.ImageField(blank= True, upload_to='image')
 
    def __str__(self):
-       return self.nome[:10]
+       return self.nome[:30]
+

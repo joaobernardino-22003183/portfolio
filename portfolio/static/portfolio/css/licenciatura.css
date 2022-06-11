@@ -19,7 +19,7 @@ body {
 
 .gallery-image {
   padding: 20px;
-  display: flex;
+  display: unset;
   flex-wrap: wrap;
   justify-content: center;
 }

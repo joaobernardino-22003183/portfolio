@@ -9,6 +9,8 @@ from .models import Post
 from .forms import PostForm
 from .models import PontuacaoQuizz
 from matplotlib import pyplot as plt
+from .models import Cadeira
+from .models import Projeto
 
 matplotlib.use('Agg')
 
@@ -24,11 +26,13 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    context = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', context)
 
 
 def projetos_page_view(request):
-    return render(request, 'portfolio/projetos.html')
+    context = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', context)
 
 
 def blog_page_view(request):
@@ -65,8 +69,6 @@ def pontuacao_quizz(request):
         pontuacao += 1
 
     return pontuacao
-
-
 
 
 def desenha_grafico_resultados(request):

@@ -30,6 +30,8 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
     context = {'cadeiras': Cadeira.objects.all()}
     return render(request, 'portfolio/licenciatura.html', context)
 

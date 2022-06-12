@@ -1,10 +1,8 @@
 <!-- login.html -->
 
-{% extends 'portfolio/layout.html' %}
+{% extends "portfolio/layout.html" %}
 
 {% block main %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/login' %}">
 
     <h1>Login</h1>
 
@@ -16,10 +14,7 @@
         {% csrf_token %}
         <p><input type="text" name="username" placeholder="username" class='form-control'></p>
         <p><input type="password" name="password" placeholder="password" class='form-control'></p>
-        <div>
-          <input type="submit" value="Login">
-        </div>
+        <input type="submit" value="Login">
     </form>
 
-
-{% endblock %}
+{% endblock main %}

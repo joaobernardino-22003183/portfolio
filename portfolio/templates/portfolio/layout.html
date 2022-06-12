@@ -12,7 +12,11 @@
             <a href="{% url 'portfolio:projetos' %}">projetos</a>
             <a href="{% url 'portfolio:blog' %}">blog</a>
             <a href="{% url 'portfolio:quizz' %}">quizz</a>
-            <a href="{% url 'portfolio:login' %}">login</a>
+            {% if request.user.is_autenticated %}
+                <a href="{% url 'portfolio:logout' %}">logout</a>
+            {% else %}
+                <a href="{% url 'portfolio:login' %}">login</a>
+            {% endif %}
         </nav>
     </header>
 	<main>

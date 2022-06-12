@@ -13,7 +13,7 @@ urlpatterns = [
     path('edita/<int:topico_id>', views.edita_topico_view, name='edita'),
     path('apaga/<int:topico_id>', views.apaga_topico_view, name='apaga'),
     path('quiz', views.quizz, name='quizz'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.view_logout, name='logout'),
+    path('login', views.view_login, name='login'),
+    path('logout', views.view_logout, name='logout'),
     path('', views.home_page_view, name='home'),
 ]

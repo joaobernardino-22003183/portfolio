@@ -1,8 +1,6 @@
 import matplotlib
 import datetime
 
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Post
@@ -30,8 +28,6 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:login'))
     context = {'cadeiras': Cadeira.objects.all()}
     return render(request, 'portfolio/licenciatura.html', context)
 
@@ -116,7 +112,8 @@ def apaga_topico_view(request, topico_id):
     Post.objects.get(id=topico_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
-def login(request):
+def view_login(request):
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -128,14 +125,13 @@ def login(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('porftfolio:login'))#possível caso de insucesso
+            return HttpResponseRedirect(reverse('portfolio:quizz'))
         else:
             return render(request, 'portfolio/login.html', {
                 'message': 'Credenciais invalidas.'
             })
 
     return render(request, 'portfolio/login.html')
-
 
 def view_logout(request):
     logout(request)

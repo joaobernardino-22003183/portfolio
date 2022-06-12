@@ -17,8 +17,6 @@
                     <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
                     <li><a href="{% url 'portfolio:quizz' %}">Quizz</a></li>
                     <li><a href="#texto" class="texto">Curso</a></li>
-                    <li><a class="weatherSubmitCity">Meteorologia</a></li>
-
 
                 </ul>
                 <p id="demo"></p>
@@ -35,7 +33,6 @@
                     var temp_Min = document.querySelector('.temp_Min')
                     var dataTemp = document.querySelector('.data')
 
-                    weatherSubmit.addEventListener('click', function(){
                     fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
                         .then(response => response.json())
                         .then(data => {
@@ -43,10 +40,27 @@
                             temp_Min.innerHTML = "e a temperatura mínima é de " + data['data'][0]['tMin'] + "ºC.";
                             dataTemp.innerHTML = "No dia " + data['data'][0]['forecastDate'] + " em Lisboa,";
                         })
-                    })
                 </script>
 
+                <button onclick="getLocation()">A tua Localização!</button>
+                <p id="demo2"></p>
 
+                <script>
+                const x = document.getElementById("demo2");
+
+                function getLocation() {
+                  try {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                  } catch {
+                    x.innerHTML = err;
+                  }
+                }
+
+                function showPosition(position) {
+                  x.innerHTML = "Latitude: " + position.coords.latitude +
+                  "<br>Longitude: " + position.coords.longitude;
+                }
+                </script>
 
             </div>
 

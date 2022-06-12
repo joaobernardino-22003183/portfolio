@@ -46,25 +46,7 @@
                     })
                 </script>
 
-                <button onclick="getLocation()">A tua Localização!</button>
-                <p id="demo2"></p>
 
-                <script>
-                const x = document.getElementById("demo2");
-
-                function getLocation() {
-                  try {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                  } catch {
-                    x.innerHTML = err;
-                  }
-                }
-
-                function showPosition(position) {
-                  x.innerHTML = "Latitude: " + position.coords.latitude +
-                  "<br>Longitude: " + position.coords.longitude;
-                }
-                </script>
 
             </div>
 

@@ -12,6 +12,10 @@ from matplotlib import pyplot as plt
 from .models import Cadeira
 from .models import Projeto
 
+from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 matplotlib.use('Agg')
 
 
@@ -107,8 +111,33 @@ def edita_topico_view(request, topico_id):
 
 
 def apaga_topico_view(request, topico_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('tarefas:login'))
     Post.objects.get(id=topico_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('porftfolio:login'))#possível caso de insucesso
+        else:
+            return render(request, 'portfolio/login.html', {
+                'message': 'Credenciais invalidas.'
+            })
+
+    return render(request, 'portfolio/login.html')
+
+
+def view_logout(request):
+    logout(request)
+
+    return render(request, 'portfolio/login.html', {
+                'message': 'Foi desconetado.'
+            })

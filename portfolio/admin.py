@@ -21,3 +21,7 @@ admin.site.register(Projeto)
 from .models import Professor
 
 admin.site.register(Professor)
+
+from .models import TFC
+
+admin.site.register(TFC)

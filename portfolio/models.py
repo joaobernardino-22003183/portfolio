@@ -50,9 +50,21 @@ class Cadeira(models.Model):
    docente_teorica = models.ForeignKey(Professor, on_delete=models.CASCADE)
    docentes_praticas = models.ForeignKey(Professor, related_name='cadeiras', on_delete=models.CASCADE,default="nome")
    projetos = models.ForeignKey(Projeto, on_delete=models.CASCADE, default="projetos")
-   ranking = models.CharField(max_length=40)
+   ranking = models.IntegerField()
    imagem = models.ImageField(blank= True, upload_to='image')
 
    def __str__(self):
        return self.nome[:30]
 
+class TFC(models.Model):
+    autor = models.CharField(max_length=200)
+    orientador = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    ano = models.IntegerField()
+    titulo = models.CharField(max_length=200)
+    descricao = models.TextField()
+    imagem = models.ImageField(blank=True, upload_to='image')
+    relatorio =  models.CharField(max_length=1000)
+    link_github = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.titulo[:70]

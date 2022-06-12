@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from .models import Post
 from .models import Projeto
 from .models import Cadeira
+from .models import TFC
 
 
 class PostForm(ModelForm):
@@ -54,3 +55,13 @@ class CadeiraForm(ModelForm):
             'ano': 'Ano',
             'ects' : 'ects'
         }
+
+class TFCForm(ModelForm):
+    class Meta:
+        model = TFC
+        fields = '__all__'
+    # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titulo'}),
+        }
+

@@ -9,10 +9,12 @@ from .models import Post
 from .models import Projeto
 from .models import Cadeira
 from .models import PontuacaoQuizz
+from .models import TFC
 
 from .forms import PostForm
 from .forms import ProjetoForm
 from .forms import CadeiraForm
+from .forms import TFCForm
 
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import authenticate, login, logout
@@ -41,6 +43,10 @@ def projetos_page_view(request):
 def blog_page_view(request):
     context = {'portfolio': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
+
+def tfc_page_view(request):
+    context = {'trabalhos': TFC.objects.all()}
+    return render(request, 'portfolio/tfc.html', context)
 
 def quizz(request):
     if request.method == 'POST':
@@ -155,6 +161,30 @@ def editar_cadeira_view(request, topico_id):
 def apagar_cadeira_view(request, topico_id):
     Cadeira.objects.get(id=topico_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+def novo_tfc_view(request):
+    form = TFCForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:tfc'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/novo.html', context)
+
+def editar_tfc_view(request, topico_id):
+    topico = TFC.objects.get(id=topico_id)
+    form = TFCForm(request.POST or None, instance=topico)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:tfc'))
+
+    context = {'form': form, 'topico_id': topico_id}
+    return render(request, 'portfolio/editar_tfc.html', context)
+
+def apagar_tfc_view(request, topico_id):
+    TFC.objects.get(id=topico_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:tfc'))
 
 def login_view(request):
     if request.method == 'POST':

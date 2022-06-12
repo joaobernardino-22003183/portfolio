@@ -6,6 +6,7 @@
     <form action="{% url 'portfolio:editarcadeira' topico_id %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        <a href="{% url 'portfolio:licenciatura' %}" role="button" class="btn btn-warning">Cancelar</a>
         <input type="submit" value="Gravar" class="btn btn-success">
         <a href="{% url 'portfolio:apagarcadeira' topico_id %}" role="button" class="btn btn-danger">Apagar</a>
     </form>

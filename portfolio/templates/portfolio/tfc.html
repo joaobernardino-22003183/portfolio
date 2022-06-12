@@ -1,0 +1,42 @@
+<!-- tfc.html -->
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/tfc.css' %}">
+
+    <p class="heading">Licenciatura em Engenharia Informática - Trabalhos Finais de Curso</p>
+    {% for tfc in trabalhos %}
+        <div class="gallery-image">
+            <div class="img-box">
+                <img src="{{tfc.imagem.url}}">
+                <div class="transparent-box">
+                    <div class="caption">
+                        <p>{{tfc.titulo}}</p>
+                        <p>
+                            -> Autor: {{tfc.autor}}<br>
+                            -> Orientador: {{tfc.orientador}}<br>
+                            -> Ano: {{tfc.ano}}<br>
+                            -> Descrição : {{tfc.descricao}}<br>
+                            -> <a href="{{tfc.link_github}}">Link Github</a><br>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'portfolio:editartfc' tfc.id %}" class="butao_editar">Editar</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% if request.user.is_authenticated %}
+        <div class="gallery-image">
+            <div class=caixa_img>
+                <div class="center">
+                    <a href="{% url 'portfolio:novotfc' %}" class="butao">Novo TFC</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -21,5 +21,9 @@ urlpatterns = [
     path('novocadeira', views.novo_cadeira_view, name='novocadeira'),
     path('editarcadeira/<int:topico_id>', views.editar_cadeira_view, name='editarcadeira'),
     path('apagarcadeira/<int:topico_id>', views.apagar_cadeira_view, name='apagarcadeira'),
+    path('tfc', views.tfc_page_view, name='tfc'),
+    path('novotfc', views.novo_tfc_view, name='novotfc'),
+    path('editartfc/<int:topico_id>', views.editar_tfc_view, name='editartfc'),
+    path('apagartfc/<int:topico_id>', views.apagar_tfc_view, name='apagartfc'),
     path('', views.home_page_view, name='home'),
 ]

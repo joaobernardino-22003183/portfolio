@@ -22,8 +22,24 @@
                             -> Docente Teórica: {{cadeira.docente_teorica}}<br>
                             -> Docente Prática: {{cadeira.docentes_praticas}}<br>
                             -> Projetos: {{cadeira.projetos}}<br>
-                            -> Ranking: {{cadeira.ranking}}<br>
+
+                            {% if cadeira.ranking <= 1%}
+                                -> Ranking:⭐
+                            {% endif %}
+                            {% if cadeira.ranking == 2%}
+                                -> Ranking:⭐⭐
+                            {% endif %}
+                            {% if cadeira.ranking == 3%}
+                                -> Ranking:⭐⭐⭐
+                            {% endif %}
+                            {% if cadeira.ranking == 4%}
+                                -> Ranking:⭐⭐⭐⭐
+                            {% endif %}
+                            {% if cadeira.ranking >= 5%}
+                                -> Ranking:⭐⭐⭐⭐⭐
+                            {% endif %}
                         </p>
+
                         {% if request.user.is_authenticated %}
                             <a href="{% url 'portfolio:editarcadeira' cadeira.id %}" class="butao_editar">Editar</a>
                         {% endif %}

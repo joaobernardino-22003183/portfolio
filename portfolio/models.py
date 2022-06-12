@@ -50,7 +50,7 @@ class Cadeira(models.Model):
    docente_teorica = models.ForeignKey(Professor, on_delete=models.CASCADE)
    docentes_praticas = models.ForeignKey(Professor, related_name='cadeiras', on_delete=models.CASCADE,default="nome")
    projetos = models.ForeignKey(Projeto, on_delete=models.CASCADE, default="projetos")
-   ranking = models.IntegerField()
+   ranking = models.CharField(max_length=40)
    imagem = models.ImageField(blank= True, upload_to='image')
 
    def __str__(self):

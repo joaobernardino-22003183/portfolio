@@ -1,6 +1,9 @@
 from django import forms
 from django.forms import ModelForm
+
 from .models import Post
+from .models import Projeto
+from .models import Cadeira
 
 
 class PostForm(ModelForm):
@@ -19,4 +22,35 @@ class PostForm(ModelForm):
             'descricao': 'Descrição'
         }
 
+class ProjetoForm(ModelForm):
+    class Meta:
+        model = Projeto
+        fields = '__all__'
+    # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'Nome_Projeto': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titulo'}),
+        }
 
+
+    # texto a exibir junto à janela de inserção
+        labels = {
+            'descricao': 'Descrição',
+            'imagem' : 'Imagem'
+        }
+
+
+class CadeiraForm(ModelForm):
+    class Meta:
+        model = Cadeira
+        fields = '__all__'
+    # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'nome': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titulo'}),
+        }
+
+
+    # texto a exibir junto à janela de inserção
+        labels = {
+            'ano': 'Ano',
+            'ects' : 'ects'
+        }

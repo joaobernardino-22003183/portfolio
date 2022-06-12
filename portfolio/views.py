@@ -3,12 +3,16 @@ import datetime
 
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Post
-from .forms import PostForm
-from .models import PontuacaoQuizz
 from matplotlib import pyplot as plt
-from .models import Cadeira
+
+from .models import Post
 from .models import Projeto
+from .models import Cadeira
+from .models import PontuacaoQuizz
+
+from .forms import PostForm
+from .forms import ProjetoForm
+from .forms import CadeiraForm
 
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import authenticate, login, logout
@@ -26,21 +30,17 @@ def home_page_view(request):
 
     return render(request, 'portfolio/home.html', context)
 
-
 def licenciatura_page_view(request):
     context = {'cadeiras': Cadeira.objects.all()}
     return render(request, 'portfolio/licenciatura.html', context)
-
 
 def projetos_page_view(request):
     context = {'projetos': Projeto.objects.all()}
     return render(request, 'portfolio/projetos.html', context)
 
-
 def blog_page_view(request):
     context = {'portfolio': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
-
 
 def quizz(request):
     if request.method == 'POST':
@@ -51,7 +51,6 @@ def quizz(request):
 
     desenha_grafico_resultados(request)
     return render(request, 'portfolio/quizz.html')
-
 
 def pontuacao_quizz(request):
     pontuacao = 0
@@ -72,7 +71,6 @@ def pontuacao_quizz(request):
 
     return pontuacao
 
-
 def desenha_grafico_resultados(request):
     pontuacoes = PontuacaoQuizz.objects.all()
     pontuacao_sorted = sorted(pontuacoes, key=lambda objeto: objeto.pontos, reverse=False)
@@ -85,7 +83,6 @@ def desenha_grafico_resultados(request):
 
     plt.barh(listaNomes, listapontuacao)
     plt.savefig('portfolio/static/portfolio/images/resultados.png', bbox_inches='tight')
-
 
 def novo_topico_view(request):
     form = PostForm(request.POST or None)
@@ -107,13 +104,59 @@ def edita_topico_view(request, topico_id):
     context = {'form': form, 'topico_id': topico_id}
     return render(request, 'portfolio/edita.html', context)
 
-
 def apaga_topico_view(request, topico_id):
     Post.objects.get(id=topico_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
-def view_login(request):
+def novo_projeto_view(request):
+    form = ProjetoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
 
+    context = {'form': form}
+    return render(request, 'portfolio/novo.html', context)
+
+def editar_projeto_view(request, topico_id):
+    topico = Projeto.objects.get(id=topico_id)
+    form = ProjetoForm(request.POST or None, instance=topico)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'topico_id': topico_id}
+    return render(request, 'portfolio/editar_projeto.html', context)
+
+def apagar_projeto_view(request, topico_id):
+    Projeto.objects.get(id=topico_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+def novo_cadeira_view(request):
+    form = CadeiraForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/novo_cadeira.html', context)
+
+def editar_cadeira_view(request, topico_id):
+    topico = Cadeira.objects.get(id=topico_id)
+    form = CadeiraForm(request.POST or None, instance=topico)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'topico_id': topico_id}
+    return render(request, 'portfolio/editar_licenciatura.html', context)
+
+def apagar_cadeira_view(request, topico_id):
+    Cadeira.objects.get(id=topico_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -125,7 +168,7 @@ def view_login(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('portfolio:quizz'))
+            return HttpResponseRedirect(reverse('portfolio:home'))
         else:
             return render(request, 'portfolio/login.html', {
                 'message': 'Credenciais invalidas.'
@@ -133,9 +176,9 @@ def view_login(request):
 
     return render(request, 'portfolio/login.html')
 
-def view_logout(request):
+def logout_view(request):
     logout(request)
 
     return render(request, 'portfolio/login.html', {
-                'message': 'Foi desconetado.'
-            })
+        'message': 'Foi desconetado.'
+    })

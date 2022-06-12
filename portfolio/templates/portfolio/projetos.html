@@ -13,17 +13,30 @@
     {% for projeto in projetos %}
         <div class="gallery-image">
             <div class="img-box">
-                <!--<img src="{% static 'portfolio/images/xadrez.png' %}">-->
-                <img src="{{projeto.imagem.url}}">
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>{{projeto.nome}}</p>
-                        <p class="opacity-low">{{projeto.descricao}}</p>
+                    <img src="{{projeto.imagem.url}}">
+                    <div class="transparent-box">
+                        <div class="caption">
+                            <p>{{projeto.nome}}</p>
+                            <p class="opacity-low">{{projeto.descricao}}</p>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'portfolio:editarprojeto' projeto.id %}" class="butao_editar">Editar</a>
+                            {% endif %}
+                        </div>
+
                     </div>
+                </div>
+        </div>
+    {% endfor %}
+    {% if request.user.is_authenticated %}
+        <div class="gallery-image">
+            <div class=caixa_img>
+                <div class="center">
+                    <a class="butao" href="{% url 'portfolio:novoprojeto' %}">Novo Projeto</a>
                 </div>
             </div>
         </div>
-    {% endfor %}
+    {% endif %}
 
-    </div>
+
+
 {% endblock %}

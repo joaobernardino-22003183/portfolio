@@ -1,0 +1,12 @@
+<!-- editar_projeto.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+<h3>Tarefa</h3>
+    <form action="{% url 'portfolio:editarprojeto' topico_id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Gravar" class="btn btn-success">
+        <a href="{% url 'portfolio:apagarprojeto' topico_id %}" role="button" class="btn btn-danger">Apagar</a>
+    </form>
+{% endblock %}

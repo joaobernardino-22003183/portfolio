@@ -25,6 +25,7 @@
                             -> Ranking: {{cadeira.ranking}}<br>
                             <!--<a href="https://www.ulusofona.pt/licenciaturas/engenharia-informatica/linguagens-de-programacao-i/ULHT260-498">Linguagens de Programação 1</a>-->
                         </p>
+                        <a href="{% url 'portfolio:editarcadeira' cadeira.id %}" class="butao_editar">Editar</a>
                     </div>
                 </div>
             </div>
@@ -32,6 +33,12 @@
     {% endfor %}
 
 
-
+    <div class="gallery-image">
+        <div class=caixa_img>
+            <div class="center">
+                <a class="butao" href="{% url 'portfolio:novocadeira' %}">Nova Cadeira</a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

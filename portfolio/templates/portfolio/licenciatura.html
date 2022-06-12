@@ -23,22 +23,23 @@
                             -> Docente Prática: {{cadeira.docentes_praticas}}<br>
                             -> Projetos: {{cadeira.projetos}}<br>
                             -> Ranking: {{cadeira.ranking}}<br>
-                            <!--<a href="https://www.ulusofona.pt/licenciaturas/engenharia-informatica/linguagens-de-programacao-i/ULHT260-498">Linguagens de Programação 1</a>-->
                         </p>
-                        <a href="{% url 'portfolio:editarcadeira' cadeira.id %}" class="butao_editar">Editar</a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:editarcadeira' cadeira.id %}" class="butao_editar">Editar</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     {% endfor %}
 
-
-    <div class="gallery-image">
-        <div class=caixa_img>
-            <div class="center">
-                <a class="butao" href="{% url 'portfolio:novocadeira' %}">Nova Cadeira</a>
+    {% if request.user.is_authenticated %}
+        <div class="gallery-image">
+            <div class=caixa_img>
+                <div class="center">
+                    <a class="butao" href="{% url 'portfolio:novocadeira' %}">Nova Cadeira</a>
+                </div>
             </div>
         </div>
-    </div>
-
+    {% endif %}
 {% endblock %}

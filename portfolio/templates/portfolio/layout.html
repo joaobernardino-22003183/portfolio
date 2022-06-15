@@ -6,15 +6,13 @@
 <body>
     <header>
         <div>João Bernardino</div>
-        <p id="relogio" onload="currentTime()"></p>
         <nav>
             <a href="{% url 'portfolio:home' %}">home</a>
             <a href="{% url 'portfolio:sobremim' %}">Sobre mim</a>
-            <a href="{% url 'portfolio:licenciatura' %}">licenciatura</a>
-            <a href="{% url 'portfolio:projetos' %}">projetos</a>
-            <a href="{% url 'portfolio:blog' %}">blog</a>
+            <a href="{% url 'portfolio:projetosgeral' %}">Projetos</a>
+            <a href="{% url 'portfolio:blog' %}">Blog</a>
+            <a href="{% url 'portfolio:web' %}">Web</a>
             <a href="{% url 'portfolio:quizz' %}">quizz</a>
-            <a href="{% url 'portfolio:tfc' %}">tfc</a>
             {% if request.user.is_authenticated %}
                 <a href="{% url 'portfolio:logout' %}">logout</a>
             {% else %}
@@ -26,7 +24,7 @@
         {% block main %}
 	    {% endblock main %}
     </main>
-    <footer>ULHT, 2022</footer>
+    <footer><p id="relogio" onload="currentTime()" class="horas"></p> ULHT, 2022</footer>
 </body>
 
 <script>
@@ -37,10 +35,10 @@
           var segundos = date.getSeconds();
 
           if (horas < 10){
-              segundos = "0" + segundos;
+              horas = "0" + horas;
           }
           if (minutos < 10){
-              segundos = "0" + segundos;
+              minutos = "0" + minutos;
           }
           if (segundos < 10){
               segundos = "0" + segundos;

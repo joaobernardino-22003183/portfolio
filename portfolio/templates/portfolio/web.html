@@ -1,0 +1,20 @@
+<!-- web.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/web.css' %}">
+
+    <div class="heading">Web</div>
+
+    <a href="{% url 'portfolio:tec' %}">Tec</a>
+    <div class="gallery-image">
+        <div class="img-box">
+            <div class="transparent-box">
+                <div class="caption">
+                        <p>caavaalo</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

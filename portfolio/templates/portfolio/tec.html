@@ -1,0 +1,59 @@
+<!-- tec.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/tec.css' %}">
+
+    <div class="titulo">Tecnologias Existentes</div>
+
+    <div class="tecs">
+        <div class="tecnologia">
+            <h2 class="margens_tec">Tecnologias de Front End</h2>
+            <p class="margens_tec">
+                Front-end consiste em tudo que realiza uma interação direta com o usuário,
+                ou seja, toda a programação da interface gráfica de um sistema.<br>
+                O termo Front-end pode ser aplicado tanto para o desenvolvimento mobile,
+                quanto para o desenvolvimento Web, mas neste artigo vamos focar no Web.<br>
+                Em um site de compras, por exemplo, se eu quero adquirir uma televisão,
+                o front-end é responsável por me guiar através de menus e opções que
+                vão me levar até o produto.
+            </p>
+            <h4>Tipos de Linguagem de Front End</h4>
+            <p class="margens_tec">HTML, CSS, JavaScript, React, entre outras.</p>
+            <p class="fontes">Fontes: <a href="https://www.zup.com.br/blog/desenvolvimento-front-end">
+                Desenvolvimento front-end: como começar e principais tecnologias</a><br>
+                <a href="https://blog.back4app.com/pt/as-10-principais-linguagens-de-programacao-front-end/">
+                    As 10 principais linguagens de programação front-end</a>
+            </p>
+        </div>
+        <div class="tecnologia">
+            <h2 class="margens_tec">Tecnologias de Back End</h2>
+            <p class="margens_tec">
+                Para que uma máquina faça o que você quer: seja postar uma foto,
+                comprar uma passagem de avião, encontrar uma rota – ou
+                literalmente fazer qualquer coisa – é preciso que alguém diga a ela como se comportar.
+
+                Pois, o processo de passar as instruções, testar e manter tudo funcionando é (de forma simples)
+                o que chamamos de programação.
+
+                Profissionais de desenvolvimento back-end são responsáveis por tudo o que está “atrás dos panos”
+                desse cenário de programação, toda a estrutura que suporta nossas ações nas máquinas.
+                De modo geral, é a pessoa que irá programar, codificar e testar.
+            </p>
+            <h4>Tipos de Linguagem de Back End</h4>
+            <p class="margens_tec">
+                Linguagens de Alto Nível: Python, Java, C#<br>
+                Linguagens de nível intermediário: C, C++<br>
+                Linguagens de baixo nível: Assembly
+            </p>
+            <p class="fontes">Fontes: <a href="https://www.zup.com.br/blog/desenvolvimento-back-end-o-que-e">
+                Desenvolvimento Back-end: entenda o que é e linguagens utilizadas</a><br>
+                <a href="https://kenzie.com.br/blog/linguagens-de-programacao-backend/">
+                    AS 11 LINGUAGENS BACK-END MAIS USADAS PARA PROGRAMAR</a>
+            </p>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -25,5 +25,8 @@ urlpatterns = [
     path('editartfc/<int:topico_id>', views.editar_tfc_view, name='editartfc'),
     path('apagartfc/<int:topico_id>', views.apagar_tfc_view, name='apagartfc'),
     path('sobremim', views.sobremim_view, name='sobremim'),
+    path('projetosgeral', views.projetos_geral_view, name='projetosgeral'),
+    path('web', views.web_view, name='web'),
+    path('tec', views.tec_view, name='tec'),
     path('', views.home_page_view, name='home'),
 ]

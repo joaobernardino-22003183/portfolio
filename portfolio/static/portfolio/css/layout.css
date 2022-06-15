@@ -56,4 +56,8 @@ footer {
   bottom: 0;
 }
 
-
+.horas {
+  position: absolute;
+  left: 2%;
+  color: white;
+}

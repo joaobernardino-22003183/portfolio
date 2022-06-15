@@ -1,0 +1,59 @@
+.titulo {
+    text-align: center;
+    font-size: 2.0em;
+    letter-spacing: 1px;
+    padding: 40px;
+    color: steelblue;
+}
+
+.citacao {
+  position: absolute;
+  bottom: 6%;
+  right: 0;
+  color: steelblue;
+}
+
+.gallery-image {
+  position: absolute;
+  left: 23%;
+  padding: 20px;
+  display: unset;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-image img {
+  height: 250px;
+  width: 350px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+
+.img-box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 250px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: steelblue;
+  position: relative;
+  background-color: transparent;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.divisao_projetos{
+  color: #3875d7;
+  text-decoration-line: none;
+}
+
+.divisao_projetos:hover{
+  color: #4ac1f7;
+}
+
+
+
+
+
+

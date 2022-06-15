@@ -215,3 +215,12 @@ def logout_view(request):
 
 def sobremim_view(request):
     return render(request,'portfolio/sobremim.html')
+
+def projetos_geral_view(request):
+    return render(request,'portfolio/projetos_geral.html')
+
+def web_view(request):
+    return render(request,'portfolio/web.html')
+
+def tec_view(request):
+    return render(request,'portfolio/tec.html')

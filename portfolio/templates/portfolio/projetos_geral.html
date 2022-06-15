@@ -1,0 +1,31 @@
+<!-- projetos_geral.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/projetos_geral.css' %}">
+
+    <div class="titulo">
+        <h1>Projetos</h1>
+    </div>
+    <div align="center">
+        <div class="gallery-image">
+            <div class="img-box">
+                <a href="{% url 'portfolio:tfc' %}">
+                    <h4 class="divisao_projetos">Trabalhos Finais de Curso</h4>
+                </a>
+                <p>Clica para consultares alguns dos projetos de final de curso realizados por colegas!</p>
+            </div>
+            <div class="img-box">
+                <a href="{% url 'portfolio:projetos' %}">
+                    <h4 class="divisao_projetos">Projetos</h4>
+                </a>
+                <p>Clica para consultares alguns dos projetos que já desenvolvi!</p>
+            </div>
+        </div>
+    </div>
+    <div class="citacao">
+        Os projetos são parte fundamental do nosso percurso!
+        Como diria Fernando Pessoa, o saber trabalhar é o segredo do êxito no trabalho.
+    </div>
+{% endblock %}

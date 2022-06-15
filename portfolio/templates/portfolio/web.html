@@ -5,19 +5,71 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/web.css' %}">
 
-    <div class="heading">Web</div>
+    <div class="titulo">Web</div>
 
-    <a href="{% url 'portfolio:tec' %}">Tec</a>
-    <a href="{% url 'portfolio:labs' %}">Labs</a>
-    <a href="{% url 'portfolio:sobreportfolio' %}">Sobre este Portfolio</a>
-    <a href="{% url 'portfolio:quizz' %}">quizz</a>
-    <div class="gallery-image">
-        <div class="img-box">
-            <div class="transparent-box">
-                <div class="caption">
-                        <p>caavaalo</p>
-                    </div>
-            </div>
-        </div>
+    <div class="grid-container">
+      <div class="item1"><a class="link_area" href="{% url 'portfolio:tec' %}">Tec</a></div>
+      <div class="item2"><a class="link_area" href="{% url 'portfolio:labs' %}">Labs</a></div>
+      <div class="item3"><a class="link_area" href="{% url 'portfolio:labs' %}">Noticias</a></div>
+      <div class="item4"><a class="link_area" href="{% url 'portfolio:sobreportfolio' %}">Sobre este Portfolio</a></div>
+      <div class="item5"><a class="link_area" href="{% url 'portfolio:quizz' %}">Quizz</a></div>
     </div>
+
+    <div align="center">
+        <p>Hoje, na cidade de Lisboa,
+                        a temperatura máxima é de <b class="temp_Max"></b>ºC
+                        e a temperatura mínima é de <b class="temp_Min"></b>ºC.
+        </p>
+
+        <div id="clock" onload="currentTime()"></div>
+
+        <p><b class="data"></b></p>
+        <p>
+            Cidade Lisboa!
+            Latitude: <b class="latitude"></b>
+            Longitude: <b class="longitude"></b>
+        </p>
+    </div>
+    <script>
+        //TEMPERATURA MÁXIMA
+        var temp_Max = document.querySelector('.temp_Max')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                temp_Max.innerHTML = data['data'][0]['tMax'];
+            })
+
+        //TEMPERATURA MÍNIMA
+        var temp_Min = document.querySelector('.temp_Min')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                temp_Min.innerHTML = data['data'][0]['tMin'];
+            })
+
+        //DATA
+        var dataTemp = document.querySelector('.data')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                dataTemp.innerHTML = data['data'][0]['forecastDate'];
+            })
+
+        //LONGITUDE
+        var longitude = document.querySelector('.longitude')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                longitude.innerHTML = data['data'][0]['longitude'];
+            })
+
+        //LATITUDE
+        var latitude = document.querySelector('.latitude')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                latitude.innerHTML = data['data'][0]['latitude'];
+            })
+
+    </script>
 {% endblock %}

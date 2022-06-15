@@ -19,6 +19,7 @@ body, html {
   top: 50%;
   left: 50%;
   color: bisque;
+
 }
 
 body {
@@ -89,10 +90,13 @@ article.terceiro > div > p{
   color: cornsilk;
 }
 
-
-
-
 .hero-image > footer {
   color: steelblue;
   background: burlywood;
+}
+
+.seta {
+  position: absolute;
+  right: 10%;
+  bottom: -130%;
 }

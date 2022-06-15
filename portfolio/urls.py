@@ -30,5 +30,6 @@ urlpatterns = [
     path('tec', views.tec_view, name='tec'),
     path('labs', views.labs_view, name='labs'),
     path('sobreportfolio', views.sobre_portfolio_view, name='sobreportfolio'),
+    path('contactos', views.contactos_view, name='contactos'),
     path('', views.home_page_view, name='home'),
 ]

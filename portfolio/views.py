@@ -230,3 +230,6 @@ def labs_view(request):
 
 def sobre_portfolio_view(request):
     return render(request, 'portfolio/sobreportfolio.html')
+
+def contactos_view(request):
+    return render(request, 'portfolio/contactos.html')

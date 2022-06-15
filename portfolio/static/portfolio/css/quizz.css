@@ -1,8 +1,4 @@
-input {
-  width: 100%;
-}
-
-input[type=button], input[type=submit], input[type=reset] {
+.botao {
   background-color: steelblue;
   border: none;
   color: white;
@@ -11,6 +7,21 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 4px 2px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+
+.barra_nome {
+  width: 100%;
+}
+input[type=submit], input[type=reset] {
+  background-color: steelblue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 input:hover {

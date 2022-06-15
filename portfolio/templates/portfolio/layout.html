@@ -11,7 +11,7 @@
             <a href="{% url 'portfolio:sobremim' %}">Sobre mim</a>
             <a href="{% url 'portfolio:projetosgeral' %}">Projetos</a>
             <a href="{% url 'portfolio:web' %}">Web</a>
-            <a href="">Contactos</a>
+            <a href="{% url 'portfolio:contactos' %}">Contactos</a>
             <a href="{% url 'portfolio:blog' %}">Blog</a>
 
             {% if request.user.is_authenticated %}
@@ -22,6 +22,9 @@
         </nav>
     </header>
 	<main>
+        <form>
+            <input type="button" value="↪" onclick="history.back()">
+        </form>
         {% block main %}
 	    {% endblock main %}
     </main>
@@ -49,4 +52,5 @@
         }
 
     currentTime();
+
 </script>

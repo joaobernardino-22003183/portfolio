@@ -1,4 +1,3 @@
-
 from django.urls import path
 from . import views
 
@@ -25,5 +24,6 @@ urlpatterns = [
     path('novotfc', views.novo_tfc_view, name='novotfc'),
     path('editartfc/<int:topico_id>', views.editar_tfc_view, name='editartfc'),
     path('apagartfc/<int:topico_id>', views.apagar_tfc_view, name='apagartfc'),
+    path('sobremim', views.sobremim_view, name='sobremim'),
     path('', views.home_page_view, name='home'),
 ]

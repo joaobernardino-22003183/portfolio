@@ -212,3 +212,6 @@ def logout_view(request):
     return render(request, 'portfolio/login.html', {
         'message': 'Foi desconetado.'
     })
+
+def sobremim_view(request):
+    return render(request,'portfolio/sobremim.html')

@@ -1,9 +1,9 @@
 <!-- home.html -->
 
-
 {% block main %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+
 
     <body>
         <div class="hero-image">
@@ -20,59 +20,27 @@
                     <li><a href="#texto" class="texto">Curso</a></li>
 
                 </ul>
-                <p id="demo"></p>
-                <section class="weatherMain">
-                    <div class="weatherDisplay">
-                        <p><b class="data"></b> <b class="temp_Max"></b> <b class="temp_Min"></b> </p>
-                    </div>
-                </section>
-                <script>
-                    var weatherSubmit = document.querySelector('.weatherSubmitCity')
-                    var inputValue = document.querySelector('.weatherCity')
+                <p>Hoje, na cidade de Lisboa,
+                    a temperatura máxima é de <b class="temp_Max"></b>ºC
+                    e a temperatura mínima é de <b class="temp_Min"></b>ºC.
+                </p>
 
-                    var temp_Max = document.querySelector('.temp_Max')
-                    var temp_Min = document.querySelector('.temp_Min')
-                    var dataTemp = document.querySelector('.data')
+                <div id="clock" onload="currentTime()"></div>
 
-                    fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            temp_Max.innerHTML = "a temperatura máxima é de " + data['data'][0]['tMax'] + "ºC";
-                            temp_Min.innerHTML = "e a temperatura mínima é de " + data['data'][0]['tMin'] + "ºC.";
-                            dataTemp.innerHTML = "No dia " + data['data'][0]['forecastDate'] + " em Lisboa,";
-                        })
-                </script>
-
-                <button onclick="getLocation()">A tua Localização!</button>
-                <p id="demo2"></p>
-
-                <script>
-                const x = document.getElementById("demo2");
-
-                function getLocation() {
-                  try {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                  } catch {
-                    x.innerHTML = err;
-                  }
-                }
-
-                function showPosition(position) {
-                  x.innerHTML = "Latitude: " + position.coords.latitude +
-                  "<br>Longitude: " + position.coords.longitude;
-                }
-                </script>
+                <p>Hoje é dia <b class="data"></b></p>
+                <p>
+                    Cidade Lisboa!
+                    Latitude: <b class="latitude"></b>
+                    Longitude: <b class="longitude"></b>
+                </p>
 
             </div>
 
-
             <article class="primeiro">
             </article>
-
             <article class='segundo'>
 
             </article>
-
             <article class="terceiro">
                 <div id="texto">
                     <h3>Licenciatura em Engenharia Informática</h3>
@@ -82,11 +50,54 @@
                     </p>
                 </div>
             </article>
-
             <footer>ULHT, 2022</footer>
         </div>
 
 
     </body>
+
+    <script>
+        //TEMPERATURA MÁXIMA
+        var temp_Max = document.querySelector('.temp_Max')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                temp_Max.innerHTML = data['data'][0]['tMax'];
+            })
+
+        //TEMPERATURA MÍNIMA
+        var temp_Min = document.querySelector('.temp_Min')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                temp_Min.innerHTML = data['data'][0]['tMin'];
+            })
+
+        //DATA
+        var dataTemp = document.querySelector('.data')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                dataTemp.innerHTML = data['data'][0]['forecastDate'];
+            })
+
+        //LONGITUDE
+        var longitude = document.querySelector('.longitude')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                longitude.innerHTML = data['data'][0]['longitude'];
+            })
+
+        //LATITUDE
+        var latitude = document.querySelector('.latitude')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+            .then(response => response.json())
+            .then(data => {
+                latitude.innerHTML = data['data'][0]['latitude'];
+            })
+
+    </script>
+
 
 {% endblock %}

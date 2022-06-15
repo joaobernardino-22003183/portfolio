@@ -1,0 +1,22 @@
+<!-- novo_cadeira.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobremim.css' %}">
+
+    <div class="container">
+        <h3 class="sobremim">Olá, o meu nome é João Bernardino!<br></h3>
+        Nasci em Torres Vedras no dia 29 de março de 2001.<br>
+        Em 2007, ingressei na EB1 da Lourinhã, onde iniciei o meu percurso escolar, e aí estudei até ao 4ºano.<br>
+        Em 2011, entrei no <a href="https://geral.penafirme.edu.pt">Externato de Penafime</a>, onde frequentei o 2ºCiclo, 3ºCiclo e o Ensino Secundário.<br>
+        Em 2013, entre na Banda da Lourinhã, onde aprendi a tocar trombone.<br>
+        Em 2019, finalizei o 12ºano no curso de Ciências Socioeconómicas.<br>
+        Em 2020, dei inínio ao meu percurso académico na <a href="https://www.ulusofona.pt">Universidade Lusófona de Humanidades e Tecnologias</a>
+        no curso <a href="{% url 'portfolio:licenciatura' %}">Engenharia Informática</a>.<br>
+
+        Idiomas: 🇵🇹 🇬🇧<br>
+        Qualidade: Criativo, Interessado e Motivado.<br>
+        Interesses e Hobbies: Cozinhar, aprender e Viajar!<br>
+    </div>
+{% endblock %}

@@ -6,8 +6,10 @@
 <body>
     <header>
         <div>João Bernardino</div>
+        <p id="relogio" onload="currentTime()"></p>
         <nav>
             <a href="{% url 'portfolio:home' %}">home</a>
+            <a href="{% url 'portfolio:sobremim' %}">Sobre mim</a>
             <a href="{% url 'portfolio:licenciatura' %}">licenciatura</a>
             <a href="{% url 'portfolio:projetos' %}">projetos</a>
             <a href="{% url 'portfolio:blog' %}">blog</a>
@@ -26,3 +28,26 @@
     </main>
     <footer>ULHT, 2022</footer>
 </body>
+
+<script>
+    function currentTime() {
+          var date = new Date();
+          var horas = date.getHours();
+          var minutos = date.getMinutes();
+          var segundos = date.getSeconds();
+
+          if (horas < 10){
+              segundos = "0" + segundos;
+          }
+          if (minutos < 10){
+              segundos = "0" + segundos;
+          }
+          if (segundos < 10){
+              segundos = "0" + segundos;
+          }
+        document.getElementById("relogio").innerText = horas + ":" + minutos + ":" + segundos;
+        var tempo = setTimeout(function(){ currentTime() }, 1000);//Para que o relógio não pare
+        }
+
+    currentTime();
+</script>

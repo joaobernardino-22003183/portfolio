@@ -224,3 +224,9 @@ def web_view(request):
 
 def tec_view(request):
     return render(request,'portfolio/tec.html')
+
+def labs_view(request):
+    return render(request, 'portfolio/labs.html')
+
+def sobre_portfolio_view(request):
+    return render(request, 'portfolio/sobreportfolio.html')

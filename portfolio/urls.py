@@ -28,5 +28,7 @@ urlpatterns = [
     path('projetosgeral', views.projetos_geral_view, name='projetosgeral'),
     path('web', views.web_view, name='web'),
     path('tec', views.tec_view, name='tec'),
+    path('labs', views.labs_view, name='labs'),
+    path('sobreportfolio', views.sobre_portfolio_view, name='sobreportfolio'),
     path('', views.home_page_view, name='home'),
 ]

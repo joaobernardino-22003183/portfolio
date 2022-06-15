@@ -5,18 +5,19 @@
 
 <body>
     <header>
-        <div>João Bernardino</div>
+        <div >João Bernardino</div>
         <nav>
-            <a href="{% url 'portfolio:home' %}">home</a>
+            <a href="{% url 'portfolio:home' %}">Home</a>
             <a href="{% url 'portfolio:sobremim' %}">Sobre mim</a>
             <a href="{% url 'portfolio:projetosgeral' %}">Projetos</a>
-            <a href="{% url 'portfolio:blog' %}">Blog</a>
             <a href="{% url 'portfolio:web' %}">Web</a>
-            <a href="{% url 'portfolio:quizz' %}">quizz</a>
+            <a href="">Contactos</a>
+            <a href="{% url 'portfolio:blog' %}">Blog</a>
+
             {% if request.user.is_authenticated %}
-                <a href="{% url 'portfolio:logout' %}">logout</a>
+                <a href="{% url 'portfolio:logout' %}">Logout</a>
             {% else %}
-                <a href="{% url 'portfolio:login' %}">login</a>
+                <a href="{% url 'portfolio:login' %}">Login</a>
             {% endif %}
         </nav>
     </header>

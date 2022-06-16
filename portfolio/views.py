@@ -233,3 +233,6 @@ def sobre_portfolio_view(request):
 
 def contactos_view(request):
     return render(request, 'portfolio/contactos.html')
+
+def noticias_view(request):
+    return render(request, 'portfolio/noticias.html')

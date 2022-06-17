@@ -1,9 +1,10 @@
 .link_area {
-  color: steelblue;
-  text-decoration: none;
+    /*Editar a cor de cada contacto*/
+    color: steelblue;
+    text-decoration: none;
 }
 .link_area:hover {
-  color: #79aec8;
+    color: #79aec8;
 }
 
 .item1 { grid-area: github;}
@@ -27,6 +28,7 @@
 }
 
 .titulo {
+    /*Título Contacto*/
     text-align: center;
     font-size: 7.0em;
     letter-spacing: 1px;

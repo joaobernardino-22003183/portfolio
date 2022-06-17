@@ -9,7 +9,7 @@ body {
   background-color: #202125;
 }
 
-.heading {
+.titulo_proj {
     text-align: center;
     font-size: 2.0em;
     letter-spacing: 1px;
@@ -17,21 +17,21 @@ body {
     color: steelblue;
 }
 
-.gallery-image {
+.galeria_projetos_rel {
   padding: 20px;
   display: unset;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.gallery-image img {
+.galeria_projetos_rel img {
   height: 250px;
   width: 350px;
   transform: scale(1.0);
   transition: transform 0.4s ease;
 }
 
-.img-box {
+.caixa_proj {
   box-sizing: content-box;
   margin: 10px;
   height: 250px;
@@ -43,7 +43,7 @@ body {
   background-color: white;
 }
 
-.caption {
+.texto_proj_rel {
   position: absolute;
   bottom: 5px;
   left: 20px;
@@ -61,20 +61,20 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.img-box:hover img {
+.caixa_proj:hover img {
   transform: scale(1.1);
 }
 
-.img-box:hover .transparent-box {
+.caixa_proj:hover .transparent-box {
   background-color:rgba(0, 0, 0, 0.5);
 }
 
-.img-box:hover .caption {
+.caixa_proj:hover .texto_proj_rel {
   transform: translateY(-20px);
   opacity: 1.0;
 }
 
-.img-box:hover {
+.caixa_proj:hover {
   cursor: pointer;
 }
 

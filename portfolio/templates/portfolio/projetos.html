@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
 
 
-    <p class="heading">Projetos Realizados</p>
+    <p class="titulo_proj">Projetos Realizados</p>
 
     {% for projeto in projetos %}
-        <div class="gallery-image">
-            <div class="img-box">
+        <div class="galeria_projetos_rel">
+            <div class="caixa_proj">
                     <img src="{{projeto.imagem.url}}">
                     <div class="transparent-box">
-                        <div class="caption">
+                        <div class="texto_proj_rel">
                             <p>{{projeto.nome}}</p>
                             <p class="opacity-low">{{projeto.descricao}}</p>
                             {% if request.user.is_authenticated %}
@@ -28,7 +28,7 @@
         </div>
     {% endfor %}
     {% if request.user.is_authenticated %}
-        <div class="gallery-image">
+        <div class="galeria_projetos_rel">
             <div class=caixa_img>
                 <div class="center">
                     <a class="butao" href="{% url 'portfolio:novoprojeto' %}">Novo Projeto</a>

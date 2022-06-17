@@ -1,4 +1,10 @@
-.tecnologia {
+.galeria_noticias {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.noticia {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -7,11 +13,6 @@
   border: 2px solid steelblue;
   color: steelblue;
   margin-bottom: 20px;
-}
-.tecs {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
 }
 
 .center {
@@ -27,7 +28,7 @@
     padding: 40px;
     color: steelblue;
 }
-.margens_tec {
+.margens_noticia {
   margin-bottom: 10px;
 }
 .fontes {

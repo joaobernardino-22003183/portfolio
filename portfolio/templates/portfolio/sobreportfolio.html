@@ -4,11 +4,12 @@
 
 {% block main %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/labs.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreportfolio.css' %}">
 
     <div class="heading">Sobre este Site</div>
     <div>
         <a href="#diagrama">Diagrama Árvore</a>
+        <a href="#video">Vídeo</a>
     </div>
 
     <p class="container">
@@ -18,8 +19,20 @@
         Tivémos também recurso a frameworks de django.<br>
         Usámos ainda o Heroku para facilitar o trabalho na configuração da infraestrutura para o deploy.<br>
     </p>
-    <div align="center">
-        <img src="{% static 'portfolio/images/diagrama.png'%}" id="diagrama">
+
+    <div class="margens_sobre">
+        <h2 class="cor">Diagrama Árvore</h2>
+        <img src="{% static 'portfolio/images/diagrama.png'%}" id="diagrama" align="center" >
+
     </div>
+
+    <div align="center">
+        <h2 class="cor">Vídeo</h2>
+        <iframe id="video" width="950" height="594" src="https://www.youtube.com/embed/06gxxXhP8Fk"
+                title="video portfolio" frameborder="0" allow="accelerometer; autoplay;
+                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+
 
 {% endblock %}

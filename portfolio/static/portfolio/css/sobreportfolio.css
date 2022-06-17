@@ -10,3 +10,25 @@
   margin-bottom: 20px;
 }
 
+.cor {
+  color: steelblue;
+}
+a{
+  text-decoration: none;
+  color: steelblue;
+}
+
+a:hover{
+  color: hotpink;
+}
+.heading {
+    text-align: center;
+    font-size: 2.0em;
+    letter-spacing: 1px;
+    padding: 40px;
+    color: steelblue;
+}
+
+.margens_sobre {
+  margin-bottom: 30px;
+}

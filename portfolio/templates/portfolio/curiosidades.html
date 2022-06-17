@@ -1,0 +1,34 @@
+<!-- web.html -->
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/web.css' %}">
+    <script></script>
+
+    <div class="titulo">Curiosidades</div>
+
+    <div align="center">
+        <p>Hoje, na cidade de Lisboa,
+                        a temperatura máxima é de <b class="temp_Max"></b>ºC
+                        e a temperatura mínima é de <b class="temp_Min"></b>ºC.
+        </p>
+
+        <div id="clock" onload="currentTime()"></div>
+
+        <p><b class="data"></b></p>
+        <p>
+            Cidade Lisboa!
+            Latitude: <b class="latitude"></b>
+            Longitude: <b class="longitude"></b>
+        </p>
+        <p>
+            <div class="item6"><a class="link_area" href="{% url 'portfolio:curiosidades' %}">Clica aqui e muda os carros!</a></div>
+            Marca: Ferrari; Modelo: <b class="ferrari"></b>;<br>
+            Marca: BMW; Modelo: <b class="bmw"></b>;<br>
+            Marca: Porsche; Modelo: <b class="porsche"></b>;<br>
+        </p>
+    </div>
+    <script src="{% static 'portfolio/javascript/funcoesJS.js' %}"></script>
+
+{% endblock %}

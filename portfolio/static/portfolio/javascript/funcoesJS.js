@@ -5,6 +5,9 @@ window.onload = function (){
     longitude()
     latitude()
     currentTime()
+    ferrari()
+    bmw()
+    porsche()
 }
 
 function temperatura_Max(){
@@ -70,4 +73,37 @@ function currentTime() {
           }
         document.getElementById("relogio").innerText = horas + ":" + minutos + ":" + segundos;
         var tempo = setTimeout(function(){ currentTime() }, 1000);//Para que o relógio não pare
+}
+
+function ferrari() {
+    var carro = document.querySelector('.ferrari')
+    var numero = Math.floor(Math.random() * 40) + 1;
+
+        fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
+            .then(response => response.json())
+            .then(data => {
+                carro.innerHTML = data['modelos'][numero]['nome'];
+            })
+}
+
+function bmw() {
+    var carro = document.querySelector('.bmw')
+    var numero = Math.floor(Math.random() * 100) + 1;
+
+        fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/7/modelos')
+            .then(response => response.json())
+            .then(data => {
+                carro.innerHTML = data['modelos'][numero]['nome'];
+            })
+}
+
+function porsche() {
+    var carro = document.querySelector('.porsche')
+    var numero = Math.floor(Math.random() * 100) + 1;
+
+        fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/47/modelos')
+            .then(response => response.json())
+            .then(data => {
+                carro.innerHTML = data['modelos'][numero]['nome'];
+            })
 }

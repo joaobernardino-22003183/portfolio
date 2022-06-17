@@ -13,11 +13,12 @@
 .item3 { grid-area: noticias;}
 .item4 { grid-area: sobre; }
 .item5 { grid-area: quizz; }
+.item6 { grid-area: cur}
 
 .grid-container {
   display: grid;
   grid-template-areas:
-    'tecnologias labs noticias sobre quizz';
+    'tecnologias labs noticias sobre quizz cur';
   gap: 10px;
   padding: 100px;
 

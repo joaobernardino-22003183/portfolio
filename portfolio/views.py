@@ -236,3 +236,6 @@ def contactos_view(request):
 
 def noticias_view(request):
     return render(request, 'portfolio/noticias.html')
+
+def curiosidadess_view(request):
+    return render(request, 'portfolio/curiosidades.html')

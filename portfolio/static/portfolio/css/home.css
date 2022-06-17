@@ -96,6 +96,7 @@ article.terceiro > div > h3{
   padding-top: 50px;
   color: bisque;
   text-align: center;
+  margin-block-start: 0;
 }
 article.terceiro > div > p{
   /*Texto sobre o curso*/

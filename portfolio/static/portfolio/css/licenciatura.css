@@ -62,7 +62,7 @@ body {
 .caption {
   /*Texto que aparece no hover*/
   position: absolute;
-  bottom: 5px;
+  bottom: 15px;
   left: 20px;
   opacity: 0.0;
   transition: transform 0.3s ease, opacity 0.3s ease;

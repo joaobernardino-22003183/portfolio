@@ -1,16 +1,20 @@
 h1 {
+  /*título Blog*/
   color: steelblue;
   font-size: 50px;
 }
 h2 {
+  /*Título do Post*/
   color: steelblue;
 }
 h6 {
+  /*Data de criação do Post*/
   color: dimgrey;
   height: 30px;
 }
 
-.container {
+.infos_post{
+  /*Informações do Post*/
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -19,7 +23,8 @@ h6 {
   margin-bottom: 20px;
 }
 
-.button {
+.botao_editar {
+  /*Botão de editar*/
   background-color: burlywood;
   color: white;
   padding: 15px 30px;
@@ -29,17 +34,18 @@ h6 {
   cursor: pointer;
   border-radius: 40px;
 }
-
-.button:hover{
+.botao_editar:hover{
   background-color: steelblue;
 }
 
 .cabecalho {
+  /*Cabeçalho - Título Blog e Botão Nova Tarefa*/
   display: flex;
   margin-bottom: 30px;
 }
 
 .nova_tarefa {
+  /*Botão Nova tarefa*/
   background-color: steelblue;
   color: white;
   padding: 20px 20px;
@@ -50,7 +56,6 @@ h6 {
   border-radius: 40px;
   margin-left: 82.25%;
 }
-
 .nova_tarefa:hover{
   background-color: burlywood;
 }

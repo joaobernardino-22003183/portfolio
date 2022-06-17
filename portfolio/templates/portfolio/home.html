@@ -4,12 +4,10 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
 
-
     <body>
         <div class="hero-image" id="cima">
             <div class="hero-text">
                 <h1 style="font-size:50px">João Bernardino</h1>
-
                 <ul>
                     <li><a class="home" href="{% url 'portfolio:home' %}">Home</a></li>
                     <li><a href="{% url 'portfolio:sobremim' %}">Sobre mim</a></li>
@@ -17,30 +15,29 @@
                     <li><a href="{% url 'portfolio:web' %}">Web</a></li>
                     <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
                     <li><a href="{% url 'portfolio:contactos' %}">Contactos</a></li>
-                    <li><a href="#texto" class="texto">⤵️</a></li>
-
+                    <li><a href="#texto" class="texto">Para Baixo⤵️</a></li>
                 </ul>
-
             </div>
-
-            <article class="primeiro">
-            </article>
-            <article class='segundo'>
-
-            </article>
-            <article class="terceiro">
-                <div id="texto">
+            <article class="primeiro"></article><!--Imagem com o nome e os links-->
+            <article class='segundo'></article><!--Imagem da praia-->
+            <article class="terceiro" id="texto"><!--Imagem com o texto sobre o curso-->
+                <div>
+                    <!--PROBLEMA-->
                     <h3>Licenciatura em Engenharia Informática</h3>
                     <p>Este curso, tem bastante componente prática, aprendemos diferentes linguagens de programação, desde às de "alto nível" às de mais "baixo nível".
                         Mas o mais importante, aprendemos a pensar como um profissional da área.<br>
                         Para além de ser interessantíssimo aprofundar conhecimentos nesta área, este curso dá-nos muitas saídas em diferentes ramos empresariais.
                     </p>
-                    <a class="seta" href="#cima">⤴️</a>
                 </div>
             </article>
-
-            <footer>ULHT, 2022</footer>
+            <article class='segundo'></article><!--Imagem da praia-->
+            <footer>
+                <p>ULHT, 2022 </p>
+                <p id="relogio" onload="currentTime()" class="horas"></p>
+                <a class="seta" href="#cima">Para Cima⤴️</a>
+            </footer>
         </div>
     </body>
+    <script src="{% static 'portfolio/javascript/funcoesJS.js' %}"></script>
 
 {% endblock %}

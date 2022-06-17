@@ -1,37 +1,44 @@
 * {
+  /*Mudar tudo*/
   scroll-behavior: smooth;
 }
 
-body, html {
+body{
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .hero-image {
-  background-image: linear-gradient(steelblue, rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(steelblue, black);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
-
 .hero-text {
+  /*Links dentro da Hero Page*/
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   color: bisque;
-
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+.hero-image > footer {
+  /*Rodapé*/
+  color: steelblue;
+  background: burlywood;
+  height:5vh;
+  display:flex;
+  padding: 0 2vw;
+  align-items: center;
+  bottom: 0;
 }
 
 ul {
+  /*Lista dos links*/
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -39,34 +46,35 @@ ul {
 }
 
 li {
+
   float: left;
 }
-
 li a {
+  /*Edição do Link*/
   display: block;
   color: cornsilk;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-
 li a:hover {
   color: burlywood;
 }
 
 .home {
+  /*Botão Home*/
   color: burlywood;
 }
 
 article.primeiro {
+  /*Imagem principal com o nome e os links*/
   height: 100%;
   background: linear-gradient(burlywood,steelblue);
   text-align: center;
   font-size: 2rem;
 }
-
-
 article.segundo {
+  /*Imagem da praia*/
   height: 50%;
   background-image: url("https://images.pexels.com/photos/5707560/pexels-photo-5707560.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   background-repeat: no-repeat;
@@ -74,33 +82,39 @@ article.segundo {
   background-position: center;
   background-size: cover;
 }
-
 article.terceiro {
-  height: 80%;
+  /*Imagem com o texto sobre o curso*/
+  height: 40%;
   background: linear-gradient(steelblue,burlywood);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
-
 article.terceiro > div > h3{
+  /*Título do texto sobre o curso*/
   padding-top: 50px;
   color: bisque;
   text-align: center;
 }
-
 article.terceiro > div > p{
+  /*Texto sobre o curso*/
   color: cornsilk;
 }
 
-.hero-image > footer {
+.seta {
+  /*Seta para cima ou para baixo*/
+  position: absolute;
+  right: 1%;
   color: steelblue;
-  background: burlywood;
+  text-decoration: none;
+}
+.seta:hover {
+  color: dodgerblue;
 }
 
-.seta {
+.horas {
+  /*Relógio no rodapé*/
   position: absolute;
-  right: 10%;
-  bottom: -130%;
+  left: 50%;
 }

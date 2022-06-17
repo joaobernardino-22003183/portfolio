@@ -10,14 +10,14 @@
     </div>
 
     {% for post in portfolio %}
-        <div class="container">
+        <div class="infos_post">
             <h2>Titulo: {{ post.titulo }}</h2>
             <h6>Data de criação: {{ post.data_criacao }}</h6>
             <p>Nome do Autor: {{ post.nome_autor }}</p>
             <p>Descrição: {{ post.descricao }}</p>
 
 
-            <a href="{% url 'portfolio:edita' post.id %}" class="button" style="float: right; margin-right: 10px">Editar</a>
+            <a href="{% url 'portfolio:edita' post.id %}" class="botao_editar" style="float: right; margin-right: 10px">Editar</a>
 
         </div>
    {% endfor %}

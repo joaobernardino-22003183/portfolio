@@ -1,10 +1,9 @@
-<!-- base.html -->
+<!-- layout.html -->
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
 
-
 <body>
-    <header>
+    <header><!--Barra com o nome e os links-->
         <div >João Bernardino</div>
         <nav>
             <a href="{% url 'portfolio:home' %}">Home</a>
@@ -23,34 +22,17 @@
     </header>
 	<main>
         <form>
+            <!--Botão para voltar atrás-->
             <input type="button" value="↪" onclick="history.back()">
         </form>
+        <!--Informação das páginas-->
         {% block main %}
 	    {% endblock main %}
     </main>
-    <footer><p id="relogio" onload="currentTime()" class="horas"></p> ULHT, 2022</footer>
+    <footer>
+        <p id="relogio" onload="currentTime()" class="horas"></p>
+        ULHT, 2022
+    </footer>
 </body>
 
-<script>
-    function currentTime() {
-          var date = new Date();
-          var horas = date.getHours();
-          var minutos = date.getMinutes();
-          var segundos = date.getSeconds();
-
-          if (horas < 10){
-              horas = "0" + horas;
-          }
-          if (minutos < 10){
-              minutos = "0" + minutos;
-          }
-          if (segundos < 10){
-              segundos = "0" + segundos;
-          }
-        document.getElementById("relogio").innerText = horas + ":" + minutos + ":" + segundos;
-        var tempo = setTimeout(function(){ currentTime() }, 1000);//Para que o relógio não pare
-        }
-
-    currentTime();
-
-</script>
+<script src="{% static 'portfolio/javascript/funcoesJS.js' %}"></script>

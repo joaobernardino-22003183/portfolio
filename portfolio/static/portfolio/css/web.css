@@ -18,7 +18,7 @@
 .grid-container {
   display: grid;
   grid-template-areas:
-    'tecnologias labs noticias sobre quizz cur';
+    'cur tecnologias labs noticias sobre quizz';
   gap: 10px;
   padding: 100px;
 
